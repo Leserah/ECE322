@@ -1,1 +1,27 @@
+//temp is new_item
+//head is target->card_list
+//CREATE LINKED LIST
+struct hand* p;         // declare node p
+if(target->card_list == NULL){
+        target->card_list = new_item;   //set first item in linked list
+        target->hand_size = target->hand_size+1;
+}else{
+        p = target->card_list;          //set p as head(target->card_list)
+        while(p->next != NULL){
+//p prints first card, p->next prints second card, etc
+                printf("inside while loop:%s\n",p);
+                p = p->next;
+                target->hand_size = target->hand_size+1;
+        }
+        p->next = new_item; // point the previous last  node to the new one crea
+ted
+}
+return target->card_list;       //?
+
+//TRAVERSE LINKED LIST
+struct hand* p; // this gives error because p was already intilized
+p=target->card_list;  //code doesnt go through this while loop, not sure why
+while(p !=  NULL){
+        printf("Player One's Hand:%c\n",p);
+        p = p->next;
 
