@@ -172,7 +172,31 @@ return;
  *  
  *  Return: a char that indicates the book that was added; return 0 if no book added.
  */
-char check_add_book(struct player* target);
+char check_add_book(struct player* target){
+	char R[13]={'A','2','3','4','5','6','7','8','9','1','J','Q','K'};	
+	int *reset = target->card_list;		//reset for while loop
+	int counter = 0;		//intilize counter
+
+//take 1 rank from array and iterate through target->card_list one by one to check if target has that rank. If so, use counter to count how many times that rank appears in target->card_list
+
+	for(i=0;i<13;i++){		//traverse through array
+		while (target->card_list != NULL){  //traverse card_list
+			if (target->card_list.rank[0] == R[i]){ 
+				counter = counter + 1;
+				temp = target->card_list;
+        }//if			
+			if(counter==4){		//add rank to book remove cards
+				target.book[7] = R[i]
+
+     }//second if		 
+			target->card_list = target->card_list->next;
+  }//while
+target->card_list=reset;		
+}//for
+
+
+
+}
 
 /*
  * Function: search
