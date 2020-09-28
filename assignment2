@@ -173,28 +173,59 @@ return;
  *  Return: a char that indicates the book that was added; return 0 if no book added.
  */
 char check_add_book(struct player* target){
-        char R[13]={'A','2','3','4','5','6','7','8','9','1','J','Q','K'};
-        char string[2]=new_card->rank[0], new_card->rank[1];
-        char ace = 0;
+	char R[13]={'A','2','3','4','5','6','7','8','9','J','Q','K'};
+	char string[2]=new_card->rank[0], new_card->rank[1];
+	char counter = 0;
+
+for (i=0;i<12;i++){		//iteratie every case except 10
+	while (target->card_list != NULL){
+		if (target->card_list->rank == R[i]){
+			counter = counter + 1
+						    }
+		target->card_list = target_card_list->next;
+					 }
+
+	if (counter == 4){
+		while (target->card_list != NULL){
+               		if (target->card_list->rank == R[i]){
+				remove_card(&user, target->card_list);
+							    }
+				target->card_list=target->card_list->next;
+						 }
+
+  }//if counter
+ }//for loop
 
 
-        while (target->card_list != NULL){
-                if (target->card_list->rank==R[i]){
-                        ace = ace + 1}
+
+//case for number 10
+int ten = 0;
+char r0 = rank[0];
+char r1 = rank[1];
+char string = {r0,r1}
+
+while (target->card_list != NULL){
+                if (target->card_list->rank == string){
+                        ten = ten + 1
+                                                    }
                 target->card_list = target_card_list->next;
-}
-        if (ace == 4){
-                while (target->card_list != NULL){
+                                         }
+
+if (ten == 4){
+          	while (target->card_list != NULL){
                         if (target->card_list->rank==string){
                                 remove_card(&user, target->card_list);
-                                target->card_list=target->card_list->ne
-                                                                        }
-}
+							    }
+                         target->card_list=target->card_list->next;
+                                                            
+                                                 }
                 target->card_list = target->card_list->next
 
-}
-}
+  }//if counter
 
+
+	
+}//function
 
 /*
  * Function: search
