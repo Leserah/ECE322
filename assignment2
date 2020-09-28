@@ -114,7 +114,38 @@ void printList(struct player* node){
  *
  *  returns: return 0 if no error, non-zero otherwise
  */
-int remove_card(struct player* target, struct card* old_card);
+int remove_card(struct player* target, struct card* old_card){
+
+//make structs
+struct hand* head = target->card_list;
+struct hand* remove = old_card;
+
+//base case: One of inputs is null, code error
+if (head == NULL || remove == NULL){
+	return -1;
+}
+//First case: Node to be deleted is head node
+if (head == remove){
+	head = remove->next;
+}
+//Third Case: Node to be deleted is last node
+if (remove->next == NULL){	//check if last node->next=NULL
+	remove = NULL;		//make remove null 
+}
+//Fourth case: any middle node
+int *reset = target->card_list;
+while (target->card_list != NULL){	//traverse through card_list
+//if target->card_list->next is the card you want to remove, then set "->next"   card to be the "->next->next" This will skip over the old_card in LL
+	if(target->card_list->next == remove){	
+		target->card_list->next = target->card_list->next->next;}
+                target->card_list = target->card_list->next;
+ }
+target->card_list=reset;
+
+//free memory
+free(remove);
+return;
+}
 
 /*
  * Function: check_add_book
