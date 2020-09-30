@@ -20,7 +20,7 @@ struct player {
   size_t book_size;// created to increment
 };
 
-/* 
+/* jifeowef
  * Instance Variables: user, computer
  * ----------------------------------
  *
